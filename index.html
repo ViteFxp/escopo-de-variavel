@@ -3,52 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wiki: Escopo de Variáveis</title>
+    <title>Wiki: Escopo de Variáveis (Modo Escuro)</title>
     <style>
+        /* Estilos do Modo Escuro */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f8f9fa;
+            background-color: #121212; /* Fundo Escuro */
+            color: #e0e0e0; /* Texto Claro */
         }
         article {
             max-width: 900px;
             margin: 0 auto;
-            background-color: #fff;
+            background-color: #1e1e1e; /* Fundo do Conteúdo Mais Escuro */
             padding: 30px;
-            border: 1px solid #a2a9b1;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            border: 1px solid #3a3a3a;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            border-radius: 8px;
         }
         h1 {
-            border-bottom: 2px solid #a2a9b1;
+            border-bottom: 2px solid #5a5a5a;
             padding-bottom: 5px;
-            color: #333;
+            color: #bb86fc; /* Cor de destaque (similar ao Material Dark) */
         }
         h2 {
-            border-bottom: 1px solid #a2a9b1;
+            border-bottom: 1px solid #3a3a3a;
             padding-top: 10px;
-            color: #555;
+            color: #cfcfcf;
         }
         p {
             line-height: 1.6;
         }
         code {
-            background-color: #eaecf0;
+            background-color: #333333;
+            color: #ffee58; /* Amarelo/Destaque */
             padding: 2px 4px;
             border-radius: 3px;
         }
         pre {
-            background-color: #272822;
+            background-color: #000000; /* Fundo de código preto */
             color: #f8f8f2;
-            padding: 10px;
+            padding: 15px;
             overflow-x: auto;
             border-radius: 5px;
         }
         .demo-box {
-            border: 1px dashed #007bff;
+            border: 1px dashed #03dac6; /* Ciano/Destaque */
             padding: 15px;
             margin-top: 20px;
-            background-color: #eaf4ff;
+            background-color: #2c2c2c;
+            color: #03dac6;
+            border-radius: 4px;
         }
         table {
             width: 100%;
@@ -56,49 +62,51 @@
             margin-top: 15px;
         }
         th, td {
-            border: 1px solid #dddddd;
+            border: 1px solid #3a3a3a;
             text-align: left;
-            padding: 8px;
+            padding: 10px;
         }
         th {
-            background-color: #f2f2f2;
+            background-color: #272727;
+            color: #e0e0e0;
+        }
+        tr:nth-child(even) {
+            background-color: #242424;
         }
     </style>
 </head>
 <body>
 
     <article>
-        <h1>Escopo de Variáveis</h1>
-        <p>Em programação, o <b>escopo</b> (ou visibilidade) de uma variável define a região do código onde essa variável pode ser acessada, modificada e onde ela "existe" na memória durante a execução do programa. Entender o escopo é fundamental para prevenir erros como <code>NameError</code> e garantir a integridade dos dados.</p>
+        <h1>Escopo de Variáveis em JavaScript (Wiki - Dark Mode)</h1>
+        <p>Em programação, o <b>escopo</b> define a região do código onde uma variável é visível e acessível. Esta página explica e demonstra as diferenças entre Escopo Global e Local.</p>
 
         <h2>Tipo 1: Variáveis Globais 🌍</h2>
-        <p>Uma variável global é definida no escopo principal do programa, fora de qualquer função ou bloco. Sua principal característica é a ampla acessibilidade:</p>
+        <p>Definidas no escopo principal, fora de qualquer função. São amplamente acessíveis.</p>
         
         <ul>
-            <li>**Acessibilidade:** Pode ser lida e, dependendo da linguagem (e boas práticas), modificada a partir de qualquer parte do código, incluindo funções.</li>
-            <li>**Ciclo de Vida:** Existe desde o momento em que é declarada até o fim da execução do programa.</li>
-            <li>**Exemplo:** Variáveis declaradas no topo de um script Python ou no escopo do <code>window</code> em JavaScript.</li>
+            <li>**Acessibilidade:** Podem ser lidas de qualquer lugar do código.</li>
+            <li>**Ciclo de Vida:** Existem durante toda a execução do script.</li>
         </ul>
 
         <h2>Tipo 2: Variáveis Locais 🏠</h2>
-        <p>Uma variável local é definida dentro de um escopo restrito, geralmente uma função ou um bloco de código (como um <code>if</code> ou <code>for</code> em linguagens modernas como JavaScript com <code>let</code>/<code>const</code>).</p>
+        <p>Definidas dentro de uma função ou bloco de código. Sua visibilidade é restrita.</p>
         
         <ul>
-            <li>**Acessibilidade:** Só pode ser acessada, lida ou modificada dentro da função ou bloco onde foi definida.</li>
-            <li>**Ciclo de Vida:** É criada quando o escopo é ativado (ex: a função é chamada) e é destruída quando a execução desse escopo é finalizada.</li>
-            <li>**Isolamento:** Variáveis locais com o mesmo nome em funções diferentes são completamente isoladas umas das outras.</li>
+            <li>**Acessibilidade:** Apenas dentro da função ou bloco onde foram declaradas.</li>
+            <li>**Ciclo de Vida:** São destruídas após a execução do seu escopo.</li>
         </ul>
 
         <h2>Demonstração Visual (JavaScript)</h2>
-        <p>O script abaixo demonstra o ciclo de vida e a visibilidade dos dois tipos de variáveis. Para ver o resultado, <strong>abra o console do seu navegador (F12)</strong>.</p>
+        <p>O script abaixo demonstra o fluxo de visibilidade no Console. Para acompanhar a simulação passo a passo, <strong>abra o console do seu navegador (F12)</strong>.</p>
         
         <div class="demo-box">
-            <p><strong>Instrução:</strong> Abra o console do navegador para ver o log de execução e o erro de escopo.</p>
+            <p><strong>INSTRUÇÃO:</strong> Use **F12** e vá para a aba **Console** para ver a saída de execução, incluindo o erro de escopo!</p>
         </div>
 
         <pre><code>
 // ======================================================================
-// CÓDIGO DEMONSTRATIVO
+// CÓDIGO DEMONSTRATIVO NO CONSOLE
 // ======================================================================
 
 // VARIÁVEL GLOBAL
@@ -142,8 +150,8 @@ console.log(`   O valor original de VAR_GLOBAL não mudou: ${VAR_GLOBAL}`);
             <thead>
                 <tr>
                     <th>Característica</th>
-                    <th>Variável GLOBAL</th>
-                    <th>Variável LOCAL</th>
+                    <th>Variável GLOBAL 🌍</th>
+                    <th>Variável LOCAL 🏠</th>
                 </tr>
             </thead>
             <tbody>
@@ -160,12 +168,12 @@ console.log(`   O valor original de VAR_GLOBAL não mudou: ${VAR_GLOBAL}`);
                 <tr>
                     <td>**Ciclo de Vida**</td>
                     <td>Do início ao fim do programa.</td>
-                    <td>Apenas durante a execução do escopo que a define.</td>
+                    <td>Apenas durante a execução do escopo.</td>
                 </tr>
                 <tr>
-                    <td>**Impacto**</td>
-                    <td>Alterações podem afetar outras partes do código.</td>
-                    <td>Alterações isoladas e seguras.</td>
+                    <td>**Isolamento**</td>
+                    <td>Baixo (Alto risco de conflitos).</td>
+                    <td>Alto (Recomendado para boas práticas).</td>
                 </tr>
             </tbody>
         </table>
