@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demonstração de Escopo (Global vs. Local)</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        .instrucao {
+            background-color: #fff;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-left: 5px solid #007bff;
+            margin-top: 20px;
+        }
+        .instrucao strong {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>🌍 Demonstração de Escopo de Variáveis (JavaScript)</h1>
+    
+    <div class="instrucao">
+        <p>Para visualizar a demonstração, você deve **abrir o console do seu navegador** (Geralmente pressionando **F12** e selecionando a aba "Console").</p>
+        <p>O JavaScript irá imprimir mensagens no console mostrando: 
+           <ul>
+               <li>Onde a variável **Global** é acessível.</li>
+               <li>Onde a variável **Local** é acessível.</li>
+               <li>Os **erros** que ocorrem ao tentar acessar a variável local fora do seu escopo.</li>
+           </ul>
+        </p>
+    </div>
+
+    <script>
+        // ======================================================================
+        // Variável Global: Definida no escopo mais externo (janela/window).
+        // ----------------------------------------------------------------------
+        let VAR_GLOBAL = "Eu sou GLOBAL (Definida no script principal)";
+        console.log("--- INÍCIO DA DEMONSTRAÇÃO ---");
+        console.log(`1. FORA DA FUNÇÃO (GLOBAL): ${VAR_GLOBAL}`);
+
+        // ----------------------------------------------------------------------
+        // Função para Variável Local e Acesso Global
+        // ----------------------------------------------------------------------
+        function demonstrarEscopo() {
+            // Variável Local: 
+            // 'VAR_LOCAL' só existe DENTRO desta função. (Usamos 'let' para escopo de bloco)
+            let VAR_LOCAL = "Eu sou LOCAL (Dentro da função)";
+            
+            console.log("\n2. DENTRO DA FUNÇÃO (Escopo Local):");
+            
+            // Acessando a variável LOCAL (sucesso)
+            console.log(`   Acessando VAR_LOCAL: ${VAR_LOCAL}`);
+            
+            // Acessando a variável GLOBAL (sucesso - leitura permitida)
